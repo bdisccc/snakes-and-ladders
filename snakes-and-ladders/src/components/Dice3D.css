@@ -1,0 +1,122 @@
+.dice-3d-shell {
+  position: relative;
+
+  width: 108px;
+  height: 108px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+}
+
+.dice-3d-canvas {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 2;
+
+  width: 108px;
+  height: 108px;
+
+  display: block;
+
+  transform: translate(-50%, -50%);
+}
+
+.dice-compact {
+  width: 82px;
+  height: 82px;
+}
+
+.dice-compact .dice-3d-canvas {
+  width: 82px;
+  height: 82px;
+}
+
+.dice-shadow {
+  position: absolute;
+
+  z-index: 1;
+
+  left: 50%;
+  bottom: 8px;
+
+  width: 49px;
+  height: 11px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(46, 38, 105, 0.2);
+
+  filter: blur(7px);
+}
+
+.dice-compact .dice-shadow {
+  bottom: 5px;
+
+  width: 40px;
+  height: 8px;
+
+  filter: blur(6px);
+}
+
+.dice-is-rolling {
+  animation:
+    dice-float 0.36s ease-in-out
+    infinite alternate;
+}
+
+.dice-is-rolling .dice-shadow {
+  opacity: 0.4;
+
+  transform:
+    translateX(-50%)
+    scale(0.72);
+}
+
+@keyframes dice-float {
+  from {
+    transform: translateY(1px);
+  }
+
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 650px) {
+  .dice-3d-shell {
+    width: 66px;
+    height: 66px;
+  }
+
+  .dice-3d-canvas {
+    width: 66px;
+    height: 66px;
+  }
+
+  .dice-compact {
+    width: 58px;
+    height: 58px;
+  }
+
+  .dice-compact .dice-3d-canvas {
+    width: 58px;
+    height: 58px;
+  }
+
+  .dice-shadow,
+  .dice-compact .dice-shadow {
+    bottom: 2px;
+
+    width: 30px;
+    height: 6px;
+
+    filter: blur(4px);
+  }
+}
